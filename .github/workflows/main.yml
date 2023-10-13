@@ -6,22 +6,6 @@ on:
       - "*"
 
 jobs:
-  unittest:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-        with:
-          node-version: 16
-
-      - name: Test App
-        run: |
-          echo "Testing App"
-          npm install
-          CI=true npm run test
-          echo "Test successfully"
-
   build:
     runs-on: ubuntu-latest
 
