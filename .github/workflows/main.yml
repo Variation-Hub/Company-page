@@ -1,27 +1,45 @@
-name: CI/CD
+name: Deploy React App
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main # You can change this to your desired branch
 
 jobs:
-  build:
-    runs-on: self-hosted
+  deploy:
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          node-version: 16
 
-      - name: Build App
-        run: |
-          echo "Start building App"
-          npm install
-          npm run build
-          echo "Build successfully!"
-      - name: Upload Build Artifacts
-        uses: actions/upload-artifact@v2
+      - name: Install Node.js and dependencies
+        uses: actions/setup-node@v2
         with:
-          name: build
-          path: build
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build React app
+        run: npm run build
+
+      - name: SSH into the server and remove the older folder
+        uses: appleboy/ssh-action@master
+        with:
+          host: variationhub.com
+          username: root
+          key: ${{ secrets.VH_KEY }}
+          script: |
+            sudo rm -rf /home/ubuntu/actions-runner/_work/Company-page/Company-page/build
+            
+      - name: Deploy to server
+        uses: appleboy/scp-action@master
+        with:
+          host: variationhub.com
+          username: root
+          key: ${{ secrets.VH_KEY }}
+          source: build/ 
+          target: /home/ubuntu/actions-runner/_work/Company-page/Company-page/build
+
+      
