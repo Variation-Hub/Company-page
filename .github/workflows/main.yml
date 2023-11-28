@@ -28,8 +28,8 @@ jobs:
         run: |
           mkdir -p ~/.ssh && echo "${{ secrets.VH_KEY }}" > ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
           ssh ubuntu@$43.204.218.94 'ls'
-          ssh ubuntu@$43.204.218.94 'sudo rm -rf /home/ubuntu/actions-runner/_work/Company-page/Company-page'
-          scp -r build/* ubuntu@$43.204.218.94:/home/ubuntu/actions-runner/_work/Company-page/Company-page/build/
+          # ssh ubuntu@$43.204.218.94 'sudo rm -rf /home/ubuntu/actions-runner/_work/Company-page/Company-page'
+          # scp -r build/* ubuntu@$43.204.218.94:/home/ubuntu/actions-runner/_work/Company-page/Company-page/build/
           
 
       
