@@ -25,12 +25,11 @@ jobs:
         run: npm run build
 
       - name: SSH into the server and remove the older folder
-        run: | 
-          ssh -i ${{ secrets.VH_KEY }} ubuntu@variationhub.com
-          sudo rm -rf /home/ubuntu/actions-runner/_work/Company-page/Company-page/build
-            
-      - name: Deploy to server
-        run: "scp -i ${{ secrets.VH_KEY }} build/ ubuntu@variationhub.com:/home/ubuntu/actions-runner/_work/Company-page/Company-page/build"
+        run: |
+          echo "${{ secrets.VH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh ubuntu@$variationhub.com 'sudo rm -rf /home/ubuntu/actions-runner/_work/Company-page/Company-page'
+          scp -r build/* ubuntu@$variationhub.com:/home/ubuntu/actions-runner/_work/Company-page/Company-page/build
           
 
       
