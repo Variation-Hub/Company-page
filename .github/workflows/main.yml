@@ -26,11 +26,11 @@ jobs:
 
       - name: SSH into the server and remove the older folder
         run: | 
-          ssh -i ${{ secrets.VH_KEY }} root@variationhub.com
+          ssh -i ${{ secrets.VH_KEY }} ubuntu@variationhub.com
           sudo rm -rf /home/ubuntu/actions-runner/_work/Company-page/Company-page/build
             
       - name: Deploy to server
-        run: "scp -i ${{ secrets.VH_KEY }} build/ root@variationhub.com:/home/ubuntu/actions-runner/_work/Company-page/Company-page/build"
+        run: "scp -i ${{ secrets.VH_KEY }} build/ ubuntu@variationhub.com:/home/ubuntu/actions-runner/_work/Company-page/Company-page/build"
           
 
       
