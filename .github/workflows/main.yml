@@ -3,7 +3,7 @@ name: Deploy React App
 on:
   push:
     branches:
-      - main # You can change this to your desired branch
+      - main
 
 jobs:
   deploy:
@@ -25,21 +25,12 @@ jobs:
         run: npm run build
 
       - name: SSH into the server and remove the older folder
-        uses: appleboy/ssh-action@master
-        with:
-          host: variationhub.com
-          username: root
-          key: ${{ secrets.VH_KEY }}
-          script: |
-            sudo rm -rf /home/ubuntu/actions-runner/_work/Company-page/Company-page/build
+        run: | 
+          ssh -i ${{ secrets.VH_KEY }} root@variationhub.com
+          sudo rm -rf /home/ubuntu/actions-runner/_work/Company-page/Company-page/build
             
       - name: Deploy to server
-        uses: appleboy/scp-action@master
-        with:
-          host: variationhub.com
-          username: root
-          key: ${{ secrets.VH_KEY }}
-          source: build/ 
-          target: /home/ubuntu/actions-runner/_work/Company-page/Company-page/build
+        run: "scp -i ${{ secrets.VH_KEY }} build/ root@variationhub.com:/home/ubuntu/actions-runner/_work/Company-page/Company-page/build"
+          
 
       
