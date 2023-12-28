@@ -3,7 +3,7 @@ name: Deploy React App
 on:
   push:
     branches:
-      - main # You can change this to your desired branch
+      - main
 
 jobs:
   deploy:
@@ -26,8 +26,10 @@ jobs:
 
       - name: SSH into the server and remove the older folder
         run: |
-          ssh -i ${{ secrets.AWS_SECRET_ACCESS_KEY }} ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'sudo rm -rf /home/ubuntu/actions-runner/_work/Company-page/Company-page/build'
+          echo "${{ secrets.AWS_SECRET_ACCESS_KEY }}" > private_key.pem
+          chmod 600 private_key.pem
+          ssh -i private_key.pem ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'sudo rm -rf /home/ubuntu/actions-runner/_work/Company-page/Company-page/build'
 
       - name: Deploy to server
         run: |
-          scp -i ${{ secrets.AWS_SECRET_ACCESS_KEY }} -r build/ ubuntu@${{ secrets.EC2_PUBLIC_IP }}:/home/ubuntu/actions-runner/_work/Company-page/Company-page/
+          scp -i private_key.pem -r build/ ubuntu@${{ secrets.EC2_PUBLIC_IP }}:/home/ubuntu/actions-runner/_work/Company-page/Company-page/
