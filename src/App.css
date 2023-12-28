@@ -14,7 +14,7 @@ body {
   background-image: linear-gradient(to right top, #bfbfbf, #bababa, #b4b4b4, #afafaf, #aaaaaa);
   font-family: 'Montserrat', sans-serif;
   overflow: hidden;
-  text-transform: lowercase;
+  text-transform: uppercase;
 }
 
 .loading-container {
