@@ -1,37 +1,27 @@
-name: Deploy to EC2
+name: CI/CD
 
 on:
   push:
-    branches:
-      - main
+    branches: ["main"]
 
 jobs:
-  deploy:
+  build:
     runs-on: self-hosted
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          node-version: 16
 
-    - name: Install dependencies
-      run: npm install
-
-    - name: Build React app
-      run: npm run build
-
-    - name: Copy build to EC2
-      uses: appleboy/scp-action@v2
-      with:
-        host: ${{ secrets.EC2_HOST }}
-        username: ${{ secrets.EC2_USERNAME }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        source: "build/"
-        target: "/path/to/your/web/server/directory"
-
-    - name: SSH into EC2 and restart server
-      uses: appleboy/ssh-action@v2
-      with:
-        host: ${{ secrets.EC2_HOST }}
-        username: ${{ secrets.EC2_USERNAME }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: |
-          sudo systemctl restart nginx  # Adjust this command based on your setup
+      - name: Build App
+        run: |
+          echo "Start building App"
+          npm install
+          npm run build
+          echo "Build successfully!"
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: build
