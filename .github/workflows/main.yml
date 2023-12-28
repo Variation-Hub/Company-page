@@ -28,9 +28,11 @@ jobs:
         run: |
           echo "${{ secrets.AWS_SECRET_ACCESS_KEY }}" > private_key.pem
           chmod 600 private_key.pem
-          ssh -i private_key.pem -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /home/ubuntu/actions-runner/_work/Company-page/Company-page && rm -rf build/ && mkdir -p build'
+          ls -R build/
+          ssh -i private_key.pem -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /home/ubuntu/actions-runner/_work/Company-page/Company-page && rm -f -R build && mkdir build'
+          ls -R build/
+          ls build/
       
       - name: Deploy to server
         run: |
-          ls -R build/
           scp -i private_key.pem -r build/ ubuntu@${{ secrets.EC2_PUBLIC_IP }}:/home/ubuntu/actions-runner/_work/Company-page/Company-page/
