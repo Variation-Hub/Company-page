@@ -20,9 +20,6 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-
-      - name: Before build
-        run: ls -R build/
         
       - name: Build React app
         run: npm run build
@@ -32,7 +29,9 @@ jobs:
           ssh -i private_key.pem -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /home/ubuntu/actions-runner/_work/Company-page/Company-page && rm -rf build'
       
       - name: Debugging Info After Deploy
-        run: ls -R build/
+        run: |
+          pwd
+          ls -R build/
       
       # - name: Deploy to server
       #   run: |
