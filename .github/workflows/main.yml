@@ -25,19 +25,9 @@ jobs:
         run: npm run build
 
       - name: SSH into the server and remove the older folder
-        uses: appleboy/ssh-action@master
-        with:
-          host: variationhub.com
-          username: ubuntu
-          key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          script: |
-            sudo rm -rf /home/ubuntu/actions-runner/_work/Company-page/Company-page/build
-            
+        run: |
+          ssh -i ${{ secrets.AWS_PRIVATE_KEY }} ubuntu@variationhub.com 'sudo rm -rf /home/ubuntu/actions-runner/_work/Company-page/Company-page/build'
+
       - name: Deploy to server
-        uses: appleboy/scp-action@master
-        with:
-          host: variationhub.com
-          username: ubuntu
-          key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          source: build/ 
-          target: /home/ubuntu/actions-runner/_work/Company-page/Company-page/build
+        run: |
+          scp -i ${{ secrets.AWS_PRIVATE_KEY }} -r build/ ubuntu@variationhub.com:/home/ubuntu/actions-runner/_work/Company-page/Company-page/
