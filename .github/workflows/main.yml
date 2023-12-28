@@ -27,11 +27,7 @@ jobs:
       - name: SSH into the server and modify directory
         run: |
           ssh -i private_key.pem -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /home/ubuntu/actions-runner/_work/Company-page/Company-page && rm -rf build'
-      
-      - name: Debugging Info After Deploy
-        run: |
-          pwd
-          ls -R build/
+          npm run build
       
       # - name: Deploy to server
       #   run: |
