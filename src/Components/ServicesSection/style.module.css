@@ -1,0 +1,34 @@
+.service_section{
+    width: 100vw;
+    text-shadow: 0px 0px 8px white;
+}
+
+.service_section h1{
+    text-align: center;
+    font-weight: 600;
+    font-size: 3vw;
+    letter-spacing: 0.2vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.cards{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 3vw;
+    gap: 3vw;
+}
+
+@media only screen and (max-width: 769px) {
+    .service_section h1{
+        font-size: 5vw;
+    }
+}
+
+@media only screen and (max-width: 426px) {
+    .service_section h1{
+        font-size: 8vw;
+    }
+}

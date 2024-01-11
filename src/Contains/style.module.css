@@ -1,0 +1,76 @@
+.card_content {
+    height: 18vw;
+    display: flex;
+    flex-direction: column;
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.title {
+    font-size: 1.4vw;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.content {
+    margin-top: 1.2vw;
+    letter-spacing: 0.1vw;
+    text-align: justify;
+    font-size: 1vw;
+    line-height: 1.2;
+}
+
+.actions{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1vw;
+    font-weight: bolder;
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.actions>a:hover{
+    color: green;
+}
+
+.card_width{
+    width: 22vw;
+}
+@media only screen and (max-width: 769px) {
+    .card_width{
+        width: 28vw;
+    }
+    .card_content {
+        height: 24vh;
+    }
+    .title{
+        font-size: 2vw;
+    }
+    .content{
+        font-size: 1.4vw;
+    }
+    .actions{
+        font-size: 1.4vw;
+    }
+}
+
+@media only screen and (max-width: 426px) {
+    .card_width{
+        width: 70vw;
+    }
+
+    .card_content {
+        height: 22vh;
+    }
+    .title{
+        font-size: 4vw;
+    }
+    .content{
+        font-size: 3vw;
+    }
+    .actions{
+        font-size: 3vw;
+    }
+}

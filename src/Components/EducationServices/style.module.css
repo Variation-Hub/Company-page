@@ -1,0 +1,103 @@
+.education_section{
+    width: 100vw;
+    text-shadow: 0px 0px 8px white;
+}
+
+.education_section h1{
+    text-align: center;
+    font-weight: 600;
+    font-size: 3vw;
+    letter-spacing: 0.2vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.edu_contain{
+    margin: 2vw 8vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.edu_data{
+    width: 60%;
+}
+.edu_contain h2{
+    font-size: 3vw;
+}
+
+.edu_contain p{
+    margin-top: 2vw;
+    margin-left: 2vw;
+    font-size: 1.2vw;
+    letter-spacing: 0.05vw;
+    text-align: justify;
+}
+
+.image{
+    border-radius: 0.8vw;
+    width: 22vw;
+    height: 15vw;
+    overflow: hidden;
+    background-color: red;
+    filter: drop-shadow(2px 2px 3px);
+}
+
+.edu_contain:nth-child(3){
+    flex-direction: row-reverse;
+    margin: 8vw 8vw
+}
+
+@media only screen and (max-width: 769px) {
+    .education_section h1{
+        font-size: 5vw;
+    }
+    .edu_data{
+        width: 55%;
+    }
+    .edu_contain h2{
+        font-size: 3.5vw;
+    }
+    
+    .edu_contain p{
+        font-size: 1.8vw;
+    }
+    
+    .image{
+        width: 25vw;
+        height: 19vw;
+    }
+}
+
+@media only screen and (max-width: 426px) {
+    .education_section h1{
+        font-size: 8vw;
+    }
+    .edu_contain{
+        flex-direction: column-reverse;
+    }
+
+    .edu_contain:nth-child(3){
+        flex-direction: column-reverse;
+        margin: 8vw 8vw
+    }
+    .edu_data{
+        width: 90%;
+    }
+    .edu_contain h2{
+        font-size: 5vw;
+        text-align: center;
+        margin-top: 2vw;
+    }
+    
+    .edu_contain p{
+        font-size: 3vw;
+        padding-bottom: 5vw;
+        border-bottom: 1px solid lightgray;
+    }
+    
+    .image{
+        width: 50vw;
+        height: 25vw;
+    }
+}

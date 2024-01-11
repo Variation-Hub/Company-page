@@ -1,0 +1,26 @@
+.footer_section {
+    width: 100vw;
+    height: 10vh;
+    background-color: black;
+    color: var(--color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20vh;
+    font-size: 1.2vw;
+}
+
+
+@media only screen and (max-width: 769px) {
+    .footer_section {
+        margin-top: 15vh;
+        font-size: 1.6vw;
+    }
+}
+
+@media only screen and (max-width: 426px) {
+    .footer_section {
+        margin-top: 5vh;
+        font-size: 2.9vw;
+    }
+}
