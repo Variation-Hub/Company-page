@@ -32,5 +32,5 @@ jobs:
         run: |
           ssh -i private_key.pem -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /home/ubuntu/Company-page && rm -rf develop'
           ssh -i private_key.pem -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /home/ubuntu/Company-page && mkdir develop'
-          scp -i private_key.pem -r dist/* ubuntu@${{ secrets.EC2_PUBLIC_IP }}:/home/ubuntu/Company-Page/develop
+          scp -i private_key.pem -r dist/* ubuntu@${{ secrets.EC2_PUBLIC_IP }}:/home/ubuntu/Company-page/develop
           

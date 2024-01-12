@@ -14,10 +14,10 @@ const MainSection = () => {
                 <p className={Style.services}>IT Services & Education</p>
             </article>
             <div className={Style.images}>
-                <img src="/public/API-logo.webp" alt="API images" width="30%" />
-                <img src="/public/DB-logo.webp" alt="DB images" width="30%" />
-                <img src="/public/JS-logo.webp" alt="Javascipt images" width="30%" />
-                <img src="/public/react-logo.webp" alt="React images" width="30%" />
+                <img src="./public/API-logo.webp" alt="API images" width="30%" />
+                <img src="./public/DB-logo.webp" alt="DB images" width="30%" />
+                <img src="./public/JS-logo.webp" alt="Javascipt images" width="30%" />
+                <img src="./public/react-logo.webp" alt="React images" width="30%" />
             </div>
             <div className={Style.icon_scroll}></div>
         </main>
