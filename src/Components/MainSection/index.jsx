@@ -1,6 +1,11 @@
 import React from 'react'
 import Style from './style.module.css'
 
+import APILogo from "../../../public/API-logo.webp"
+import DBLogo from "../../../public/DB-logo.webp"
+import JSLogo from "../../../public/JS-logo.webp"
+import ReactLogo from "../../../public/react-logo.webp"
+
 const MainSection = () => {
     return (
         <main className={`${Style.main_section}`}>
@@ -14,10 +19,10 @@ const MainSection = () => {
                 <p className={Style.services}>IT Services & Education</p>
             </article>
             <div className={Style.images}>
-                <img src="./public/API-logo.webp" alt="API images" width="30%" />
-                <img src="./public/DB-logo.webp" alt="DB images" width="30%" />
-                <img src="./public/JS-logo.webp" alt="Javascipt images" width="30%" />
-                <img src="./public/react-logo.webp" alt="React images" width="30%" />
+                <img src={APILogo} alt="API images" width="30%" />
+                <img src={DBLogo} alt="DB images" width="30%" />
+                <img src={JSLogo} alt="Javascipt images" width="30%" />
+                <img src={ReactLogo} alt="React images" width="30%" />
             </div>
             <div className={Style.icon_scroll}></div>
         </main>
