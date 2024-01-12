@@ -1,6 +1,6 @@
 import React from 'react'
 import Style from './style.module.css'
-
+import VHLogo from '../../../public/vh-name-logo.png'
 import APILogo from "../../../public/API-logo.webp"
 import DBLogo from "../../../public/DB-logo.webp"
 import JSLogo from "../../../public/JS-logo.webp"
@@ -10,7 +10,7 @@ const MainSection = () => {
     return (
         <main className={`${Style.main_section}`}>
             <div className={Style.logoImage}>
-                <img src="/public/vh-name-logo.png" alt="variation hub logo" width="100%"/>
+                <img src={VHLogo} alt="variation hub logo" width="100%"/>
             </div>
             <article className={`${Style.tagline}`}>
                 <p>Empowering Your</p>
