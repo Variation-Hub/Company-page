@@ -4,6 +4,7 @@ import Style from './style.module.css';
 import FrontEndImage from '../../../public/frontend-developer.jpg'
 import BackendImage from '../../../public/backend-developer.webp'
 import DsaImage from '../../../public/Dsa.jpg'
+import BlockImage from '../../../public/Blockchain.png'
 
 const EducationServices = () => {
   return (
@@ -26,6 +27,16 @@ const EducationServices = () => {
         </div>
         <div className={`${Style.image}`}>
           <img src={BackendImage} alt="Backend education" width="100%" height="100%" />
+        </div>
+      </div>
+
+      <div className={Style.edu_contain}>
+        <div className={Style.edu_data}>
+          <h2>Blockchain Fundamentals</h2>
+          <p>Discover the basics of decentralized systems with our Blockchain Fundamentals course. Learn key principles like how information is stored, how agreements are reached, and how to keep things secure. See how blockchain is changing many industries, and gain practical skills to make and improve smart contracts for better, more efficient ways of doing things.</p>
+        </div>
+        <div className={`${Style.image}`}>
+          <img src={BlockImage} alt="Frontend education" width="100%" height="100%" />
         </div>
       </div>
 

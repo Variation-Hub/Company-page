@@ -43,7 +43,7 @@
     filter: drop-shadow(2px 2px 3px);
 }
 
-.edu_contain:nth-child(3){
+.edu_contain:nth-child(odd){
     flex-direction: row-reverse;
     margin: 8vw 8vw
 }
