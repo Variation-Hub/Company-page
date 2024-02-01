@@ -24,13 +24,13 @@ jobs:
       - name: Build React app
         run: npm run build
         
-      - name: Debugging Info Before Deploy
-        run: |
-          echo "${{ secrets.AWS_SECRET_ACCESS_KEY }}" > private_key.pem
-          chmod 600 private_key.pem
-      - name: SSH into the server and modify directory
-        run: |
-          ssh -i private_key.pem -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /home/ubuntu/Company-page && rm -rf develop'
-          ssh -i private_key.pem -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /home/ubuntu/Company-page && mkdir develop'
-          scp -i private_key.pem -r dist/* ubuntu@${{ secrets.EC2_PUBLIC_IP }}:/home/ubuntu/Company-page/develop
+      #- name: Debugging Info Before Deploy
+      #  run: |
+      #    echo "${{ secrets.AWS_SECRET_ACCESS_KEY }}" > private_key.pem
+      #    chmod 600 private_key.pem
+      #- name: SSH into the server and modify directory
+      #  run: |
+      #    ssh -i private_key.pem -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /home/ubuntu/Company-page && rm -rf develop'
+      #    ssh -i private_key.pem -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /home/ubuntu/Company-page && mkdir develop'
+      #    scp -i private_key.pem -r dist/* ubuntu@${{ secrets.EC2_PUBLIC_IP }}:/home/ubuntu/Company-page/develop
           
